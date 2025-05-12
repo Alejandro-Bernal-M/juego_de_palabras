@@ -1,6 +1,6 @@
 require 'httparty'
 
-class WordsService
+class AnalyzeWordService
   def initialize(word)
     @word = word
     @api_key = Rails.application.credentials.dig(:words_api, :api_key)

@@ -18,7 +18,7 @@ class HomeController < ApplicationController
       end
     end
 
-    @response = WordsService.new(@word).call
+    @response = AnalyzeWordService.new(@word).call
     
     if @response[:status] == 'ok'
       flash.now[:notice] = "Synonyms found"
