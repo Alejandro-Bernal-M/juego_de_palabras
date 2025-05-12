@@ -61,6 +61,8 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem 'pry'
+  gem 'pry-rails'
 end
 
 group :test do
@@ -68,3 +70,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+
+gem "haml-rails", "~> 2.1"
+gem "httparty", "~> 0.20.0"
