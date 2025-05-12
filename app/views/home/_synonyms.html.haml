@@ -1,5 +1,5 @@
 .flex.items-center.flex-col#synonyms
-  - synonyms&.each do |synonim|
+  - Array(synonyms)&.each do |synonim|
     .w-full
       %p.text-center.text-2xl.font-bold
         = synonim

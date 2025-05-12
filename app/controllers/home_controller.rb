@@ -4,18 +4,19 @@ class HomeController < ApplicationController
   def search_word
     @word = params[:word]
 
-    unless @word.present?
-      flash[:error] = "Please enter a word to search."
-      
+    if @word.blank?
+      flash.now[:alert] = "Please enter a word to search."
+
       respond_to do |format|
         format.turbo_stream do
-          return turbo_stream.replace(
+          render turbo_stream: turbo_stream.replace(
             "flash_messages",
             partial: "/layouts/flash_messages",
             locals: { flash: flash }
           )
         end
       end
+      return
     end
 
     @response = AnalyzeWordService.new(@word).call
